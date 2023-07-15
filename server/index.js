@@ -1,18 +1,18 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const { v4: uuid } = require(`uuid`);
 const mongoose = require("mongoose");
 const User = require("./models/user");
 
 app.use(express.json());
 
 async function main() {
+  console.log('connecting')
   await mongoose.connect("mongodb://127.0.0.1:27017/ferClientSideRenderClass");
   console.log("Mongo connect");
 }
 main().catch((err) => {
-  console.log(err, "Mongo Error!");
+  console.log(err);
 });
 
 /* 
